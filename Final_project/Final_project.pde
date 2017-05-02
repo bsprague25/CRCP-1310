@@ -17,6 +17,20 @@ void setup() {
 }
 
 void draw() {
+  textSize(20);
+    fill(255);
+    text("January",60,30);
+    text("February", 260,30);
+    text("March", 470,30);
+    text("April", 670,30);
+    text("May", 75,230);
+    text("June", 275,230);
+    text("July", 475,230);
+    text("August", 670,230);
+    text("September", 50,430);
+    text("October", 260,430);
+    text("November", 450,430);
+    text("December", 650,430);  
 }
 
 void mousePressed(){
