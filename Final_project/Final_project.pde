@@ -50,6 +50,54 @@ void draw() {
     bezierVertex( 300,125, 350,120, 350,100 );  
     bezierVertex( 350,70, 300,70, 300,100 );  
     endShape();
+    
+    fill(27,170,45);
+    frameRate(10);
+    beginShape();
+    vertex(470,130);
+    vertex(450,130);
+    curveVertex(450,130);
+    curveVertex(450,130);
+    curveVertex(470,85);
+    curveVertex(530,85);
+    curveVertex(550,130);
+    curveVertex(550,130);
+    vertex(550,130);
+    vertex(530,130);
+    curveVertex(530,130);
+    curveVertex(530,130);
+    curveVertex(515,100);
+    curveVertex(485,100);
+    curveVertex(470,130);
+    curveVertex(470,130);
+    endShape(); 
+    
+    fill(252,199,250);
+    beginShape();
+    vertex(660, 100);
+    bezierVertex(660,100, 700,-25, 740,100);
+    bezierVertex(740,100, 700,200, 660,100);
+    endShape();
+    
+    fill(random(100,255),random(100,255), random(100,255));
+    beginShape();
+    vertex(660,100);
+    vertex(662,95);
+    vertex(675,85);
+    vertex(690,95);
+    vertex(702,85);
+    vertex(715,95);
+    vertex(727,85);
+    vertex(737,95);
+    vertex(740,100);
+    vertex(735,110);
+    vertex(727,100);
+    vertex(715,110);
+    vertex(702,100);
+    vertex(690,110);
+    vertex(675,100);
+    vertex(664,110);
+    endShape(CLOSE);
 }
 
 void mousePressed(){
