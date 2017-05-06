@@ -17,5 +17,5 @@ class Month {
     strokeWeight(3);
     fill(0);
     rect(x, y, monthSize, monthSize);
-  }
+    }
 }

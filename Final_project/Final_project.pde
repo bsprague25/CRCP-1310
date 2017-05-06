@@ -10,8 +10,12 @@ void setup() {
   size(800,600);
   for( int i = 0; i<rows; i++){
     for(int j = 0; j<cols; j++){
+      if( rows <= 1 && cols <= 1){
+        calendar[i][j] = new January();
+      }else{
       calendar[i][j] = new Month(j*monthSize, i*monthSize, monthSize);
       calendar[i][j].drawMonth();
+      }
     }
   }
 }
