@@ -40,6 +40,10 @@ void draw() {
     drawJune();
     drawJuly();
     drawAugust();
+    drawSeptember();
+    drawOctober();
+    drawNovember();
+    drawDecember();
 }
 
 void mousePressed(){
@@ -73,18 +77,18 @@ void drawFebruary(){
 }
 
 void drawMarch(){
-    fill(0);
-    frameRate(10);
-    stroke(random(100,255),random(100,255), random(100,255));
-    strokeWeight(30);
-    beginShape();
-    curveVertex(450,130);
-    curveVertex(450,130);
-    curveVertex(470,85);
-    curveVertex(530,85);
-    curveVertex(550,130);
-    curveVertex(550,130);
-    endShape(); 
+  fill(3,142,20);
+  strokeWeight(3);
+  arc(500,155,7,40,0,TWO_PI,CHORD);
+  strokeWeight(30);
+  stroke(3,142,20);
+  pushMatrix();
+  translate(500,120);
+  for(int i = 0; i<10; i++){
+  rotate(TWO_PI/4);
+  line(0,0,25,25);
+  }
+  popMatrix();
 }
 
 void drawApril(){
@@ -182,18 +186,121 @@ void drawJuly(){
    arc(0, 0, 80, 90, 0, PI);
    endShape();
    popMatrix();
+   
+   stroke(0);
+   ellipse(500,310,5,5);
+   ellipse(520,310,5,5);
+   ellipse(480,310,5,5);
+   ellipse(510,325,5,5);
+   ellipse(490,325,5,5);
 }
 
 void drawAugust(){
-    fill(255,224,98);
     pushMatrix();
     translate(700,300);
     for(int i =0; i<10; i++){
       rotate(TWO_PI/10);
       strokeWeight(7);
-      stroke(255,224,98);
+      stroke(255,200,0);
       line(0,0,45,0);
     }
+  fill(255,224,98);
+  strokeWeight(2);
   ellipse(0,0,50,50);
   popMatrix();
+}
+
+void drawSeptember(){
+  stroke(170,44,2);
+  strokeWeight(3);
+  fill(170,44,2);
+  beginShape();
+  vertex(95,580);
+  vertex(95,560);
+  vertex(50,560);
+  vertex(75,545);
+  vertex(30,530);
+  vertex(55,525);
+  vertex(30,505);
+  vertex(65,515);
+  vertex(60,500);
+  vertex(80,520);
+  vertex(75,470);
+  vertex(90,505);
+  vertex(100,445);
+  vertex(110,505);
+  vertex(125,470);
+  vertex(120,520);
+  vertex(140,500);
+  vertex(135,515);
+  vertex(170,505);
+  vertex(145,525);
+  vertex(170,530);
+  vertex(125,545);
+  vertex(150,560);
+  vertex(105,560);
+  vertex(105,580);
+  endShape(CLOSE);
+}
+
+void drawOctober(){
+  fill(255,133,3);
+  stroke(255,133,3);
+  ellipse(300,510,120,100);
+  fill(0);
+  triangle(265,500,280,475,295,500);
+  triangle(305,500,320,475,335,500);
+  triangle(285,520,300,500,315,520);
+  arc(300,530,50,50,0,PI,OPEN);
+  fill(255,133,3);
+  rect(297,550,5,10);
+  rect(287,522,5,10);
+  rect(307,522,5,10);
+  noStroke();
+  fill(44,80,47);
+  rect(290,450,20,25,7);
+}
+
+void drawNovember(){
+  fill(46,9,11);
+  stroke(46,9,11);
+  ellipse(500,545,150,50);
+  beginShape();
+  vertex(470,470);
+  vertex(530,470);
+  vertex(550,530);
+  vertex(450,530);
+  endShape(CLOSE);
+  fill(42,147,160);
+  stroke(42,147,160);
+  arc(500,525,100,25,0,PI,CHORD);
+  fill(234,212,5);
+  stroke(234,212,5);
+  line(490,515,510,515);
+  line(510,515,510,547);
+  line(510,547,490,547);
+  line(490,547,490,515);
+}
+
+void drawDecember(){
+  fill(8,72,19);
+  stroke(8,72,19);
+  strokeWeight(4);
+  triangle(630,550,700,500,770,550);
+  triangle(640,520,700,470,760,520);
+  triangle(660,490,700,450,740,490);
+  fill(46,9,11);
+  stroke(46,9,11);
+  rect(695,553,10,20);
+  
+  fill(255,0,0);
+  stroke(255,0,0);
+  ellipse(685,505,15,15);
+  ellipse(720,505,15,15);
+  
+  fill(242,223,2);
+  stroke(242,223,2);
+  ellipse(730,535,15,15);
+  ellipse(675,535,15,15);
+  ellipse(700,475,15,14);
 }
