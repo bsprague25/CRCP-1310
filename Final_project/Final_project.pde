@@ -31,27 +31,49 @@ void draw() {
     text("October", 260,430);
     text("November", 450,430);
     text("December", 650,430); 
-
-    drawJanuary();
-    drawFebruary();
-    drawMarch();
-    drawApril();
-    drawMay();
-    drawJune();
-    drawJuly();
-    drawAugust();
-    drawSeptember();
-    drawOctober();
-    drawNovember();
-    drawDecember();
 }
 
-void mousePressed(){
-  
+void keyPressed(){
+  if(key == 'j'){
+    drawJanuary();
+  }
+  if(key == 'f'){
+    drawFebruary();
+  }
+  if(key == 'm'){
+    drawMarch();
+  }
+  if(key == 'a'){
+    drawApril();
+  }
+  if(key == 'M'){
+    drawMay();
+  }
+  if(key == 'J'){
+    drawJune();
+  }
+  if(key == 'l'){
+    drawJuly();
+  }
+  if(key == 'A'){
+    drawAugust();
+  }
+  if(key == 's'){
+    drawSeptember();
+  }
+  if(key == 'o'){
+    drawOctober();
+  }
+  if(key == 'n'){
+    drawNovember();
+  }
+  if(key == 'd'){
+    drawDecember();
+  }
 }
 
 void drawJanuary(){
-    pushMatrix();
+  pushMatrix();
     translate(100,100);
     for(int i =0; i<10; i++){
       rotate(TWO_PI/6);
@@ -62,7 +84,7 @@ void drawJanuary(){
       line(-10,40,0,30);
   }
   popMatrix();
-}
+ }
 
 void drawFebruary(){
     fill(255,0,0);
@@ -79,11 +101,11 @@ void drawFebruary(){
 void drawMarch(){
   fill(3,142,20);
   strokeWeight(3);
-  arc(500,155,7,40,0,TWO_PI,CHORD);
-  strokeWeight(30);
   stroke(3,142,20);
+  arc(500,140,7,40,0,TWO_PI,CHORD);
+  strokeWeight(30);
   pushMatrix();
-  translate(500,120);
+  translate(500,100);
   for(int i = 0; i<10; i++){
   rotate(TWO_PI/4);
   line(0,0,25,25);
@@ -92,6 +114,7 @@ void drawMarch(){
 }
 
 void drawApril(){
+    //egg
     fill(252,199,250);
     noStroke();
     strokeWeight(3);
@@ -101,6 +124,7 @@ void drawApril(){
     bezierVertex(740,100, 700,200, 660,100);
     endShape();
     
+    //zigzag stripe
     fill(random(100,255),random(100,255), random(100,255));
     beginShape();
     vertex(660,100);
@@ -138,10 +162,13 @@ void drawMay(){
 }
 
 void drawJune(){
+    //ball
     fill(255);
     stroke(0);
     strokeWeight(3);
     ellipse(300,310,100,100);
+    
+    //green stripe
     noStroke();
     fill(32,201,62);
     beginShape();
@@ -152,6 +179,7 @@ void drawJune(){
     vertex(310,295);
     endShape(CLOSE);
     
+    //blue stripe
     fill(36,57,234);
     beginShape();
     vertex(310,305);
@@ -162,6 +190,7 @@ void drawJune(){
     vertex(320,310);
     endShape(CLOSE);
     
+    //yellow stripe
     fill(255,247,3);
     beginShape();
     vertex(330,300);
@@ -169,6 +198,8 @@ void drawJune(){
     vertex(346,330);
     vertex(325,310);
     endShape(CLOSE);
+    
+    //center red circle
     fill(255,0,0);
     ellipse(320,300,20,20);
 }
@@ -187,6 +218,7 @@ void drawJuly(){
    endShape();
    popMatrix();
    
+   //seeds
    stroke(0);
    ellipse(500,310,5,5);
    ellipse(520,310,5,5);
@@ -244,24 +276,32 @@ void drawSeptember(){
 }
 
 void drawOctober(){
+  //pumpkin
   fill(255,133,3);
   stroke(255,133,3);
   ellipse(300,510,120,100);
+  
+  //eyes and nose
   fill(0);
   triangle(265,500,280,475,295,500);
   triangle(305,500,320,475,335,500);
   triangle(285,520,300,500,315,520);
+  
+  //mouth
   arc(300,530,50,50,0,PI,OPEN);
   fill(255,133,3);
   rect(297,550,5,10);
   rect(287,522,5,10);
   rect(307,522,5,10);
+  
+  //stem
   noStroke();
   fill(44,80,47);
   rect(290,450,20,25,7);
 }
 
 void drawNovember(){
+  //hat
   fill(46,9,11);
   stroke(46,9,11);
   ellipse(500,545,150,50);
@@ -271,9 +311,13 @@ void drawNovember(){
   vertex(550,530);
   vertex(450,530);
   endShape(CLOSE);
+  
+  //blue ribbon on hat
   fill(42,147,160);
   stroke(42,147,160);
   arc(500,525,100,25,0,PI,CHORD);
+  
+  //buckle
   fill(234,212,5);
   stroke(234,212,5);
   line(490,515,510,515);
@@ -283,21 +327,26 @@ void drawNovember(){
 }
 
 void drawDecember(){
+  //tree
   fill(8,72,19);
   stroke(8,72,19);
   strokeWeight(4);
   triangle(630,550,700,500,770,550);
   triangle(640,520,700,470,760,520);
   triangle(660,490,700,450,740,490);
+  
+  //tree trunck
   fill(46,9,11);
   stroke(46,9,11);
-  rect(695,553,10,20);
+  rect(695,554,10,20);
   
+  //red ornaments
   fill(255,0,0);
   stroke(255,0,0);
   ellipse(685,505,15,15);
   ellipse(720,505,15,15);
   
+  //yellow ornaments
   fill(242,223,2);
   stroke(242,223,2);
   ellipse(730,535,15,15);
