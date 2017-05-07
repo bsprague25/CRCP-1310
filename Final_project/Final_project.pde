@@ -31,16 +31,36 @@ void draw() {
     text("October", 260,430);
     text("November", 450,430);
     text("December", 650,430); 
-    
-    stroke(109,244,250);
-    line(100,60,100,160);
-    line(150,80,50,140);
-    line(50,80,150,140);
-    line(115,70,100,80);
-    line(85,70,100,80);
-    line(115,150,100,140);
-    line(85,150,100,140);
-    
+
+    drawJanuary();
+    drawFebruary();
+    drawMarch();
+    drawApril();
+    drawMay();
+    drawJune();
+    drawJuly();
+    drawAugust();
+}
+
+void mousePressed(){
+  
+}
+
+void drawJanuary(){
+    pushMatrix();
+    translate(100,100);
+    for(int i =0; i<10; i++){
+      rotate(TWO_PI/6);
+      strokeWeight(3);
+      stroke(171,250,252);
+      line(0,45,0,0);
+      line(10,40,0,30);
+      line(-10,40,0,30);
+  }
+  popMatrix();
+}
+
+void drawFebruary(){
     fill(255,0,0);
     noStroke();
     beginShape();
@@ -50,29 +70,27 @@ void draw() {
     bezierVertex( 300,125, 350,120, 350,100 );  
     bezierVertex( 350,70, 300,70, 300,100 );  
     endShape();
-    
-    fill(27,170,45);
+}
+
+void drawMarch(){
+    fill(0);
     frameRate(10);
+    stroke(random(100,255),random(100,255), random(100,255));
+    strokeWeight(30);
     beginShape();
-    vertex(470,130);
-    vertex(450,130);
     curveVertex(450,130);
     curveVertex(450,130);
     curveVertex(470,85);
     curveVertex(530,85);
     curveVertex(550,130);
     curveVertex(550,130);
-    vertex(550,130);
-    vertex(530,130);
-    curveVertex(530,130);
-    curveVertex(530,130);
-    curveVertex(515,100);
-    curveVertex(485,100);
-    curveVertex(470,130);
-    curveVertex(470,130);
     endShape(); 
-    
+}
+
+void drawApril(){
     fill(252,199,250);
+    noStroke();
+    strokeWeight(3);
     beginShape();
     vertex(660, 100);
     bezierVertex(660,100, 700,-25, 740,100);
@@ -100,6 +118,82 @@ void draw() {
     endShape(CLOSE);
 }
 
-void mousePressed(){
-  
+void drawMay(){
+  pushMatrix();
+    translate(100,300);
+    for(int i =0; i<10; i++){
+      rotate(TWO_PI/7);
+      strokeWeight(30);
+      stroke(200,112,247);
+      line(0,0,45,0);
+  }
+  fill(255,224,98);
+  stroke(255,214,3);
+  ellipse(0,0,20,20);
+  popMatrix();
+}
+
+void drawJune(){
+    fill(255);
+    stroke(0);
+    strokeWeight(3);
+    ellipse(300,310,100,100);
+    noStroke();
+    fill(32,201,62);
+    beginShape();
+    vertex(320,290);
+    vertex(300,260);
+    vertex(285,262);
+    vertex(269,270);
+    vertex(310,295);
+    endShape(CLOSE);
+    
+    fill(36,57,234);
+    beginShape();
+    vertex(310,305);
+    vertex(253,330);
+    vertex(264,346);
+    vertex(282,358);
+    vertex(300,360);
+    vertex(320,310);
+    endShape(CLOSE);
+    
+    fill(255,247,3);
+    beginShape();
+    vertex(330,300);
+    vertex(350,310);
+    vertex(346,330);
+    vertex(325,310);
+    endShape(CLOSE);
+    fill(255,0,0);
+    ellipse(320,300,20,20);
+}
+
+void drawJuly(){
+  //adapted from https://forum.processing.org/two/discussion/10175/drawing-watermelons-in-a-repeating-pattern
+   stroke(3,142,20);
+   arc(-120,-120, 150, 155, 0, PI);  
+   strokeWeight(5); 
+   
+   pushMatrix();
+   translate(500,300);
+   fill(252,74,98);
+   beginShape(); 
+   arc(0, 0, 80, 90, 0, PI);
+   endShape();
+   popMatrix();
+}
+
+void drawAugust(){
+    fill(255,224,98);
+    pushMatrix();
+    translate(700,300);
+    for(int i =0; i<10; i++){
+      rotate(TWO_PI/10);
+      strokeWeight(7);
+      stroke(255,224,98);
+      line(0,0,45,0);
+    }
+  ellipse(0,0,50,50);
+  popMatrix();
 }
