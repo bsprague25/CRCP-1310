@@ -15,18 +15,7 @@ float monthSize = 200;
 
 Month[][] calendar = new Month[rows][cols];
 Minim m;
-AudioPlayer Jan;
-AudioPlayer Feb;
-AudioPlayer Mar;
-AudioPlayer Apr;
-AudioPlayer May;
-AudioPlayer Jun;
-AudioPlayer Jul;
-AudioPlayer Aug;
-AudioPlayer Sept;
-AudioPlayer Oct;
-AudioPlayer Nov;
-AudioPlayer Dec;
+AudioPlayer background;
 
 void setup() {
   size(800,600);
@@ -35,12 +24,7 @@ void setup() {
       calendar[i][j] = new Month(j*monthSize, i*monthSize, monthSize);
       calendar[i][j].drawMonth();
       m = new Minim(this);
-      //Jan = m.loadFile("january.wav");
-      //Feb = m.loadFile("february.wav");
-      //Mar = m.loadFile("march.wav");
-      //Apr = m.loadFile("april.wav");
-      //May = m.loadFile("may.wav");
-      //Jun = m.loadFile("june.mp3");
+      background = m.loadFile("guitar.wav");
     }
   }
 }
@@ -73,7 +57,7 @@ void mousePressed(){
       ellipse(random(x+5,x+180),random(y+40,y+180),5,5);
       //feb
       textSize(10);
-      fill(255,0,0);
+      fill(random(100,255),0,0);
       text("Love",random(x+200,x+380),random(y+40,y+180));
       //mar
       stroke(0,random(100,255),0);
@@ -103,69 +87,122 @@ void mousePressed(){
       noStroke();
       fill(0,0,random(100,255));
       ellipse(random(x+210,x+390),random(y+240,y+380),7,7);
+      //oct
+      textSize(10);
+      fill(255);
+      text("BOO",random(x+210,x+370),random(y+450,y+580)); 
+      textSize(15);
+      fill(80,6,126);
+      text("BOO",random(x+210,x+365),random(y+450,y+580));
+      //dec
+      noStroke();
+      fill(250,0,0);
+      ellipse(random(x+610,x+790),random(y+440,y+580),5,5);
+      fill(255);
+      ellipse(random(x+610,x+790),random(y+440,y+580),5,5);
+   }
+   for(int i=0; i<5;i++){
+      //aug
+      textSize(13);
+      fill(255,224,98);
+      text("Sunshine",random(x+600,x+780),random(y+250,y+380));
+   }
+  
+   for(int i=0;i<3;i++){
+      //jul
+      pushMatrix();
+      translate(random(x+420,X+580),random(Y+250,Y+380));
+      for(int j =0; j<12; j++){
+        rotate(TWO_PI/12);
+        strokeWeight(2);
+        stroke(255,0,0);
+        line(0,0,15,0);
+      }
+      popMatrix();
+      pushMatrix();
+      translate(random(x+420,X+580),random(Y+250,Y+380));
+      for(int j =0; j<12; j++){
+        rotate(TWO_PI/12);
+        strokeWeight(2);
+        stroke(0,0,255);
+        line(0,0,15,0);
+      }
+      popMatrix();
+      pushMatrix();
+      translate(random(x+420,X+580),random(Y+250,Y+380));
+      for(int j =0; j<12; j++){
+        rotate(TWO_PI/12);
+        strokeWeight(2);
+        stroke(255);
+        line(0,0,15,0);
+      }
+      popMatrix();
+      //sept
+      noStroke();
+      fill(234,208,2);
+      ellipse(random(x+10,x+180),random(y+440,y+580),12,12);
+      fill(234,154,2);
+      ellipse(random(x+5,x+180),random(y+440,y+580),10,10);
+      fill(234,53,2);
+      ellipse(random(x+5,x+180),random(y+440,y+580),7,7);
+      fill(88,49,38);
+      ellipse(random(x+5,x+180),random(y+440,y+580),10,10);
+      //nov
+      //sept
+      noStroke();
+      fill(227,110,0);
+      ellipse(random(x+410,x+580),random(y+440,y+580),12,12);
+      fill(118,48,160);
+      ellipse(random(x+405,x+580),random(y+440,y+580),10,10);
+      fill(21,129,27);
+      ellipse(random(x+405,x+580),random(y+440,y+580),7,7);
+      fill(88,49,38);
+      ellipse(random(x+405,x+580),random(y+440,y+580),10,10);
+      fill(234,208,2);
+      ellipse(random(x+405,x+580),random(y+440,y+580),7,7);
    }
 }
 
 void keyPressed(){
   if(key == 'j'){
     drawJanuary();
-    //Jan.rewind();
-    //Jan.play();
   }
   if(key == 'f'){
     drawFebruary();
-    //Feb.rewind();
-    //Feb.play();
   }
   if(key == 'm'){
     drawMarch();
-    //Mar.rewind();
-    //Mar.play();
   }
   if(key == 'a'){
     drawApril();
-    //Apr.rewind();
-    //Apr.play();
   }
   if(key == 'M'){
     drawMay();
-    //May.rewind();
-    //May.play();
   }
   if(key == 'J'){
     drawJune();
-    //Jun.rewind();
-    //Jun.play();
   }
   if(key == 'l'){
     drawJuly();
-    Jul.rewind();
-    Jul.play();
   }
   if(key == 'A'){
     drawAugust();
-    Aug.rewind();
-    Aug.play();
   }
   if(key == 's'){
     drawSeptember();
-    Sept.rewind();
-    Sept.play();
   }
   if(key == 'o'){
     drawOctober();
-    Oct.rewind();
-    Oct.play();
   }
   if(key == 'n'){
     drawNovember();
-    Nov.rewind();
-    Nov.play();
   }
   if(key == 'd'){
     drawDecember();
-    Dec.rewind();
-    Dec.play();
+  }
+  if(key == ' '){
+    background.rewind();
+    background.play();
   }
 }
 
