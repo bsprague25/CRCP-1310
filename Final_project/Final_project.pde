@@ -1,10 +1,32 @@
-//Bailey Sprague
+//Author: Bailey Sprague
+//May 9, 2017
+//Interactive 12-Month Calendar
+
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
 
 int rows = 3;
 int cols = 4;
 float monthSize = 200;
 
 Month[][] calendar = new Month[rows][cols];
+Minim m;
+AudioPlayer Jan;
+AudioPlayer Feb;
+AudioPlayer Mar;
+AudioPlayer Apr;
+AudioPlayer May;
+AudioPlayer Jun;
+AudioPlayer Jul;
+AudioPlayer Aug;
+AudioPlayer Sept;
+AudioPlayer Oct;
+AudioPlayer Nov;
+AudioPlayer Dec;
 
 void setup() {
   size(800,600);
@@ -12,6 +34,13 @@ void setup() {
     for(int j = 0; j<cols; j++){
       calendar[i][j] = new Month(j*monthSize, i*monthSize, monthSize);
       calendar[i][j].drawMonth();
+      m = new Minim(this);
+      //Jan = m.loadFile("january.wav");
+      //Feb = m.loadFile("february.wav");
+      //Mar = m.loadFile("march.wav");
+      //Apr = m.loadFile("april.wav");
+      //May = m.loadFile("may.wav");
+      //Jun = m.loadFile("june.mp3");
     }
   }
 }
@@ -33,42 +62,110 @@ void draw() {
     text("December", 650,430); 
 }
 
+void mousePressed(){
+   float x = 0;
+   float y = 0;
+   for(int i =0;i<20;i++){
+      //jan
+      strokeWeight(1);
+      stroke(171,250,252);
+      fill(255);
+      ellipse(random(x+5,x+180),random(y+40,y+180),5,5);
+      //feb
+      textSize(10);
+      fill(255,0,0);
+      text("Love",random(x+200,x+380),random(y+40,y+180));
+      //mar
+      stroke(0,random(100,255),0);
+      strokeWeight(4);
+      pushMatrix();
+      translate(random(410,590),random(50,190));
+      for(int j = 0; j<10; j++){
+        rotate(TWO_PI/4);
+        line(0,0,5,5);
+      }
+      popMatrix();
+      //apr
+      noStroke();
+      fill(random(100,255),random(100,255),random(100,255));
+      ellipse(random(x+610,x+790),random(y+40,y+180),7,11);
+      //may
+      pushMatrix();
+      translate(random(10,190),random(250,390));
+      for(int j =0; j<10; j++){
+        rotate(TWO_PI/7);
+        strokeWeight(2);
+        stroke(random(100,255),random(100,255),random(100,255));
+        line(0,0,5,0);
+      }
+      popMatrix();
+      //jun
+      noStroke();
+      fill(0,0,random(100,255));
+      ellipse(random(x+210,x+390),random(y+240,y+380),7,7);
+   }
+}
+
 void keyPressed(){
   if(key == 'j'){
     drawJanuary();
+    //Jan.rewind();
+    //Jan.play();
   }
   if(key == 'f'){
     drawFebruary();
+    //Feb.rewind();
+    //Feb.play();
   }
   if(key == 'm'){
     drawMarch();
+    //Mar.rewind();
+    //Mar.play();
   }
   if(key == 'a'){
     drawApril();
+    //Apr.rewind();
+    //Apr.play();
   }
   if(key == 'M'){
     drawMay();
+    //May.rewind();
+    //May.play();
   }
   if(key == 'J'){
     drawJune();
+    //Jun.rewind();
+    //Jun.play();
   }
   if(key == 'l'){
     drawJuly();
+    Jul.rewind();
+    Jul.play();
   }
   if(key == 'A'){
     drawAugust();
+    Aug.rewind();
+    Aug.play();
   }
   if(key == 's'){
     drawSeptember();
+    Sept.rewind();
+    Sept.play();
   }
   if(key == 'o'){
     drawOctober();
+    Oct.rewind();
+    Oct.play();
   }
   if(key == 'n'){
     drawNovember();
+    Nov.rewind();
+    Nov.play();
   }
   if(key == 'd'){
     drawDecember();
+    Dec.rewind();
+    Dec.play();
   }
 }
 
@@ -78,7 +175,7 @@ void drawJanuary(){
     for(int i =0; i<10; i++){
       rotate(TWO_PI/6);
       strokeWeight(3);
-      stroke(171,250,252);
+      stroke(112,237,252);
       line(0,45,0,0);
       line(10,40,0,30);
       line(-10,40,0,30);
